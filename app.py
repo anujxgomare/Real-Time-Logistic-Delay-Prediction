@@ -19,14 +19,13 @@ with st.form("prediction_form"):
     destination_city = st.text_input("Destination City", "CityB")
     shipment_date = st.date_input("Shipment Date")
     planned_delivery = st.text_input("Planned Delivery (YYYY-MM-DD HH:MM:SS)")
-    actual_delivery = st.text_input("Actual Delivery (YYYY-MM-DD HH:MM:SS)")
     distance_km = st.number_input("Distance (in km)", min_value=0.0, step=0.1)
     weather_condition = st.selectbox("Weather Condition", ["Clear", "Rain", "Storm", "Fog"])
     traffic_condition = st.selectbox("Traffic Condition", ["Light", "Moderate", "Heavy"])
     vendor_delay_score = st.number_input("Vendor Delay Score", 0.0, 1.0, 0.5, step=0.01)
     hour_of_day = st.slider("Hour of Day", 0, 23, 12)
-    day_of_week = st.selectbox("Day of Week", list(range(0, 7)))
-    holiday_flag = st.selectbox("Is Holiday?", [0, 1])
+    day_of_week = st.selectbox("Day of Week", ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+    holiday_flag = st.selectbox("Is Holiday?", ["No","Yes"])
     pickup_delay_minutes = st.number_input("Pickup Delay (minutes)", min_value=0, step=1)
     driver_rating = st.slider("Driver Rating", 1.0, 5.0, 4.5, step=0.1)
     vehicle_age_years = st.slider("Vehicle Age (years)", 0, 20, 3)
@@ -48,7 +47,6 @@ if submitted:
         "destination_city": "CityB",
         "shipment_date": "2025-07-01",
         "planned_delivery": "2025-07-01 12:00:00",
-        "actual_delivery": "2025-07-01 12:00:00",
         "distance_km": distance_km,
         "weather_condition": weather_condition,
         "traffic_condition": traffic_condition,
